@@ -18,6 +18,8 @@ namespace _12M
             InitializeComponent();
         }
 
+        
+
         ConnectionAdress dbCon = new ConnectionAdress();
         CRUD crud = new CRUD();
 
@@ -54,6 +56,11 @@ namespace _12M
         {
 
             RunStoredProcedure();
+
+            if (crud.errorMessage != string.Empty)
+            {
+                MessageBox.Show(crud.errorMessage);
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)

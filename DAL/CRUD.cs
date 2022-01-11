@@ -10,6 +10,7 @@ namespace DAL
 {
     public class CRUD
     {
+        public string errorMessage = string.Empty;
         public void Save(IDbCommand command)
         {
             try
@@ -18,7 +19,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+               
             }
 
         }
@@ -31,7 +32,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                
             }
 
         }
@@ -44,7 +45,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                
             }
 
 
@@ -78,7 +79,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                errorMessage = ex.Message;
             }
 
 
