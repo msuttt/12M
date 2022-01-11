@@ -9,6 +9,6 @@ namespace DAL
 {
     public class ConnectionAdress
     {
-        SqlConnection con = new SqlConnection("");
+      public  SqlConnection con = new SqlConnection("");
     }
 }
