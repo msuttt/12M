@@ -1,0 +1,11 @@
+CREATE TABLE temptable
+(
+    SiraNo int,
+	Stok int,
+	IslemTur varchar(50),
+	EvrakNo varchar(16),
+	Tarih varchar(30),
+	GirisMiktar numeric(25,6),
+	CikisMiktar numeric(25,6),
+	Fiyat numeric(25,6)
+);

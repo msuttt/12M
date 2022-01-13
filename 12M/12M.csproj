@@ -85,5 +85,9 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="StoredProcedure\CreateTemptable.txt" />
+    <Content Include="StoredProcedure\StoredProcedure.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

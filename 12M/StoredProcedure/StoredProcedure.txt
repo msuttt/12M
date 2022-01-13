@@ -1,0 +1,37 @@
+
+CREATE Procedure stoklar @Malkodu varchar(30),@Baslangic int,@Bitis int
+AS
+
+Delete  from [dbo].[temptable]
+
+Insert into [dbo].[temptable](SiraNo,IslemTur,EvrakNo,Tarih,GirisMiktar,CikisMiktar)
+
+Select 
+
+STI.ID AS SiraNo, 
+
+Case 
+WHEN STI.IslemTur = 0 THEN 'Giriş'
+WHEN STI.IslemTur = 1 THEN 'Çıkış'
+ELSE ' '
+END AS IslemTur,
+
+STI.EvrakNo AS EvrakNo, 
+
+CONVERT(VARCHAR(15), CAST(STI.Tarih - 2 AS datetime), 104) AS Tarih,
+ 
+CASE 
+WHEN STI.IslemTur=0 THEN STI.Miktar
+ELSE 0
+END AS GirisMiktar,
+
+CASE
+WHEN STI.IslemTur=1 THEN STI.Miktar
+ELSE 0
+END AS CikisMiktar
+
+from  [dbo].[STI] as STI 
+Where STI.MalKodu=@Malkodu  AND STI.Tarih>=@Baslangic AND STI.Tarih<=@Bitis
+order by STI.Tarih ASC,STI.ID ASC
+
+Select * from [dbo].[temptable]
