@@ -9,6 +9,6 @@ namespace DAL
 {
     public class ConnectionAdress
     {
-      public  SqlConnection con = new SqlConnection("");
+        public SqlConnection con = new SqlConnection(@"Data Source= LAPTOP-MSV44HS0\MINE;Initial Catalog=12MDB;Integrated Security=True");
     }
 }

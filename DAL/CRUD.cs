@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+    //Bu sınıf temel CRUD işlemlerinin yapıldığı fonksiyonları barındırır
     public class CRUD
     {
         public string errorMessage = string.Empty;
@@ -52,9 +53,20 @@ namespace DAL
 
         }
 
-
-        public DataTable List(string procedureName, SqlConnection con, string MalKodu, string Start, string Finish)
+        public DataTable List(string query, SqlConnection con)
         {
+            DataTable dt = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            adapter.Fill(dt);
+
+            return dt;
+
+        }
+        public DataTable StoredProcedure(string procedureName, SqlConnection con, string MalKodu, string Start, string Finish)
+        {
+            //String olarak gelen tarihi Date tipine dönüştürür
+            DateTime StartDate = Convert.ToDateTime(Start);
+            DateTime FinishDate = Convert.ToDateTime(Finish);
 
             DataTable dt = new DataTable();
             try
@@ -63,19 +75,12 @@ namespace DAL
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.AddWithValue("Malkodu", MalKodu);
-                command.Parameters.AddWithValue("Baslangic", Start);
-                command.Parameters.AddWithValue("Bitis", Finish);
+                command.Parameters.AddWithValue("Baslangic", Convert.ToInt32(StartDate.ToOADate()));//Tarih tipini veritabanımızdaki değerin tipine dönüştürür
+                command.Parameters.AddWithValue("Bitis", Convert.ToInt32(FinishDate.ToOADate()));
 
                 SqlDataReader dr = command.ExecuteReader();
+                dt.Load(dr);
 
-
-                if (dr.Read())
-                {
-                    foreach (var item in dr)
-                    {
-                        dt.Rows.Add(item);
-                    }
-                }
             }
             catch (Exception ex)
             {

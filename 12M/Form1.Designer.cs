@@ -34,9 +34,7 @@ namespace _12M
             this.txtStart = new System.Windows.Forms.TextBox();
             this.txtFinish = new System.Windows.Forms.TextBox();
             this.txtProductCode = new System.Windows.Forms.TextBox();
-            this.txtProductName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnGet = new System.Windows.Forms.Button();
             this.dtResult = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
@@ -82,13 +80,6 @@ namespace _12M
             this.txtProductCode.Size = new System.Drawing.Size(124, 22);
             this.txtProductCode.TabIndex = 6;
             // 
-            // txtProductName
-            // 
-            this.txtProductName.Location = new System.Drawing.Point(894, 48);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(125, 22);
-            this.txtProductName.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -98,18 +89,9 @@ namespace _12M
             this.label3.TabIndex = 8;
             this.label3.Text = "Mal.Kodu:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(830, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Mal.Adı:";
-            // 
             // btnGet
             // 
-            this.btnGet.Location = new System.Drawing.Point(426, 111);
+            this.btnGet.Location = new System.Drawing.Point(345, 111);
             this.btnGet.Name = "btnGet";
             this.btnGet.Size = new System.Drawing.Size(75, 23);
             this.btnGet.TabIndex = 10;
@@ -129,7 +111,7 @@ namespace _12M
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(568, 111);
+            this.btnClear.Location = new System.Drawing.Point(495, 111);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 12;
@@ -145,9 +127,7 @@ namespace _12M
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dtResult);
             this.Controls.Add(this.btnGet);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.txtProductCode);
             this.Controls.Add(this.txtFinish);
             this.Controls.Add(this.txtStart);
@@ -169,9 +149,7 @@ namespace _12M
         private System.Windows.Forms.TextBox txtStart;
         private System.Windows.Forms.TextBox txtFinish;
         private System.Windows.Forms.TextBox txtProductCode;
-        private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGet;
         private System.Windows.Forms.DataGridView dtResult;
         private System.Windows.Forms.Button btnClear;
